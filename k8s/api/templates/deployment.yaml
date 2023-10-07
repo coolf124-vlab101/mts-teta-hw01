@@ -49,7 +49,10 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
           - name: CONNECTIONSTRINGS__PGCONNECTION
-            value: "server=77.105.185.127; port=5000; database=weather; user id=mydbuser; password=mydb-user-pass"
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-auth
+                key: connection-string
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
