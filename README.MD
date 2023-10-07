@@ -1,4 +1,11 @@
 ## Проект домашнего задания для МТС Тета модуль 2
+###  Требования/ Requirements
+На АРМ должны быть установлены:
+ - ssh
+ - ansible
+ - git
+ - kubectl
+ - helm3
 ### Список хостов
 ```
 balancer-01 10.0.10.2 :public
@@ -8,13 +15,13 @@ etcd-01 10.0.10.5
 etcd-01 10.0.10.6
 etcd-01 10.0.10.7
 ```
-### Подготовка
-#Создать машины через интерфейс Hub.cloud.ms
-#Разрешить конфигурацию ansible из другой директории
+### 1. Подготовка
+#1.1 Создать машины через интерфейс Hub.cloud.ms
+#1.2 Разрешить конфигурацию ansible из другой директории
 ```
 export ANSIBLE_CONFIG="/shared/mts-teta/hw-01/ansible/ansible.cfg"
 ```
-#Поправить ~/.ssh/config
+#1.3 Поправить ~/.ssh/config
 ```
 Host bastion-balancer-01
   User appuser
@@ -33,10 +40,10 @@ Host 10.0.10.6
 Host 10.0.10.7
  ProxyJump appuser@bastion-balancer-01
 ```
-#Проставить IP адреса
+#1.4 Проставить IP адрес в строку подключения файла k8s/deployment.yml
 
-### Первичная настройка ВМ
-```
+### 2. Первичная настройка ВМ
+```bash
 cd ansible
 #Проверить что машины доступны
 ansible all -m ping
@@ -47,20 +54,20 @@ ansible-playbook deploy_pgcluster.yml
 #заполнить базу
 ansible-playbook populater-postgresql.yml
 ```
-### Первичная настройка Приложения в кубе
+### 3. Первичная настройка Приложения в кубе
 #Скопировать конфиг
-```
+```bash
 export KUBECONFIG=~/.kube/config:/shared/mts-teta/student_a.burdin@digitalms.ru.yaml
 kubectl config view --flatten
 kubectl config use-context student13@grand-lion-d99896
 ```
 #Запускаем контейнерное приложение
-```
+```bash
 helm update api-01 k8s/api/
 ```
 
-### Проверяем что работает
-```
+### 4. Проверяем что работает
+```bash
 kubectl get pods #Проверяем что контейнеры запущены и работает
 kubectl get ingresses #Проверяем что Ingress
 curl http://mts-teta-hw01-api/WeatherForecast #проверям что приложение работает - если таблицы пусты, то вернет пустой ответ, но без ошибки
