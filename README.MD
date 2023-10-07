@@ -17,6 +17,7 @@ etcd-01 10.0.10.7
 ```
 ### 1. Подготовка
 #1.1 Создать машины через интерфейс Hub.cloud.ms
+#1.1 Склонировать проект 'git clone git@github.com:coolf124-vlab101/mts-teta-hw01.git'
 #1.2 Разрешить конфигурацию ansible из другой директории
 ```
 export ANSIBLE_CONFIG="/shared/mts-teta/hw-01/ansible/ansible.cfg"
