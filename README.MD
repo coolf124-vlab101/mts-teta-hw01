@@ -16,13 +16,13 @@ etcd-01 10.0.10.6
 etcd-01 10.0.10.7
 ```
 ### 1. Подготовка
-**1.1 Создать машины через интерфейс Hub.cloud.ms** 
-**1.1 Склонировать проект `git clone git@github.com:coolf124-vlab101/mts-teta-hw01.git`** 
-**1.3 Разрешить конфигурацию ansible из другой директории** 
+**1.1 Создать машины через интерфейс Hub.cloud.ms**  
+**1.1 Склонировать проект `git clone git@github.com:coolf124-vlab101/mts-teta-hw01.git`**  
+**1.3 Разрешить конфигурацию ansible из другой директории**  
 ```
 export ANSIBLE_CONFIG="/shared/mts-teta/hw-01/ansible/ansible.cfg"
 ```
-**1.4 Поправить ~/.ssh/config**
+**1.4 Поправить ~/.ssh/config**  
 ```
 Host bastion-balancer-01
   User appuser
@@ -41,7 +41,7 @@ Host 10.0.10.6
 Host 10.0.10.7
  ProxyJump appuser@bastion-balancer-01
 ```
-**1.5 Проставить IP адрес в строку подключения файла k8s/deployment.yml**
+**1.5 Проставить IP адрес в строку подключения файла k8s/deployment.yml**  
 
 ### 2. Первичная настройка ВМ
 ```sh
