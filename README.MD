@@ -16,13 +16,13 @@ etcd-01 10.0.10.6
 etcd-01 10.0.10.7
 ```
 ### 1. Подготовка
-#** 1.1 Создать машины через интерфейс Hub.cloud.ms** 
-#** 1.1 Склонировать проект `git clone git@github.com:coolf124-vlab101/mts-teta-hw01.git`** 
-#** 1.3 Разрешить конфигурацию ansible из другой директории ** 
+**1.1 Создать машины через интерфейс Hub.cloud.ms** 
+**1.1 Склонировать проект `git clone git@github.com:coolf124-vlab101/mts-teta-hw01.git`** 
+**1.3 Разрешить конфигурацию ansible из другой директории** 
 ```
 export ANSIBLE_CONFIG="/shared/mts-teta/hw-01/ansible/ansible.cfg"
 ```
-#** 1.4 Поправить ~/.ssh/config**
+**1.4 Поправить ~/.ssh/config**
 ```
 Host bastion-balancer-01
   User appuser
@@ -41,7 +41,7 @@ Host 10.0.10.6
 Host 10.0.10.7
  ProxyJump appuser@bastion-balancer-01
 ```
-#1.4 Проставить IP адрес в строку подключения файла k8s/deployment.yml
+**1.5 Проставить IP адрес в строку подключения файла k8s/deployment.yml**
 
 ### 2. Первичная настройка ВМ
 ```sh
@@ -56,13 +56,13 @@ ansible-playbook deploy_pgcluster.yml
 ansible-playbook populater-postgresql.yml
 ```
 ### 3. Первичная настройка Приложения в кубе
-#** 3.1 Скопировать конфиг** 
+**3.1 Скопировать конфиг** 
 ```sh
 export KUBECONFIG=~/.kube/config:/shared/mts-teta/student_a.burdin@digitalms.ru.yaml
 kubectl config view --flatten
 kubectl config use-context student13@grand-lion-d99896
 ```
-#Запускаем контейнерное приложение
+**3.2 Запускаем контейнерное приложение**
 ```sh
 helm update api-01 k8s/api/
 ```
