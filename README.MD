@@ -43,7 +43,7 @@ Host 10.0.10.7
 #1.4 Проставить IP адрес в строку подключения файла k8s/deployment.yml
 
 ### 2. Первичная настройка ВМ
-```bash
+```sh
 cd ansible
 #Проверить что машины доступны
 ansible all -m ping
@@ -56,18 +56,18 @@ ansible-playbook populater-postgresql.yml
 ```
 ### 3. Первичная настройка Приложения в кубе
 #Скопировать конфиг
-```bash
+```sh
 export KUBECONFIG=~/.kube/config:/shared/mts-teta/student_a.burdin@digitalms.ru.yaml
 kubectl config view --flatten
 kubectl config use-context student13@grand-lion-d99896
 ```
 #Запускаем контейнерное приложение
-```bash
+```sh
 helm update api-01 k8s/api/
 ```
 
 ### 4. Проверяем что работает
-```bash
+```sh
 kubectl get pods #Проверяем что контейнеры запущены и работает
 kubectl get ingresses #Проверяем что Ingress
 curl http://mts-teta-hw01-api/WeatherForecast #проверям что приложение работает - если таблицы пусты, то вернет пустой ответ, но без ошибки
