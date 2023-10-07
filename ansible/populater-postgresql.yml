@@ -1,0 +1,22 @@
+---
+- name: "Populate weather db"
+  hosts: localhost
+  tasks:
+      - name: Create public.cities table
+        postgresql_query:
+          db: weather
+          login_host: 77.105.185.127
+          login_user: mydbuser
+          login_password: mydb-user-pass
+          port: 5000
+          query: create table if not exists weather.public.cities(id   bigserial,     name varchar(255) );
+
+      - name: Create public.forecast table
+        postgresql_query:
+          db: weather
+          login_host: 77.105.185.127
+          login_user: mydbuser
+          login_password: mydb-user-pass
+          port: 5000
+          query: create table if not exists weather.public.forecast(    id          bigserial,     "cityId"    bigint,    "dateTime"  bigint,    temperature integer,    summary     text);
+
