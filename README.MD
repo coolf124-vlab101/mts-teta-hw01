@@ -16,13 +16,13 @@ etcd-01 10.0.10.6
 etcd-01 10.0.10.7
 ```
 ### 1. Подготовка
-#1.1 Создать машины через интерфейс Hub.cloud.ms
-#1.1 Склонировать проект 'git clone git@github.com:coolf124-vlab101/mts-teta-hw01.git'
-#1.2 Разрешить конфигурацию ansible из другой директории
+#** 1.1 Создать машины через интерфейс Hub.cloud.ms** 
+#** 1.1 Склонировать проект `git clone git@github.com:coolf124-vlab101/mts-teta-hw01.git`** 
+#** 1.3 Разрешить конфигурацию ansible из другой директории ** 
 ```
 export ANSIBLE_CONFIG="/shared/mts-teta/hw-01/ansible/ansible.cfg"
 ```
-#1.3 Поправить ~/.ssh/config
+#** 1.4 Поправить ~/.ssh/config**
 ```
 Host bastion-balancer-01
   User appuser
@@ -56,7 +56,7 @@ ansible-playbook deploy_pgcluster.yml
 ansible-playbook populater-postgresql.yml
 ```
 ### 3. Первичная настройка Приложения в кубе
-#Скопировать конфиг
+#** 3.1 Скопировать конфиг** 
 ```sh
 export KUBECONFIG=~/.kube/config:/shared/mts-teta/student_a.burdin@digitalms.ru.yaml
 kubectl config view --flatten
