@@ -6,7 +6,7 @@
  - git
  - kubectl
  - helm3
-### Схема приложения [Ссылка на Приложение API из Домашного задания по модулю 2](http://9f5f69f6-aa8c-4658-abf1-f6deeb4ebbba.mts-gslb.ru/WeatherForecast)
+### Схема приложения [Ссылка на развернутое Приложение API из Домашного задания по модулю 2 (работает пока не выключено)](http://9f5f69f6-aa8c-4658-abf1-f6deeb4ebbba.mts-gslb.ru/WeatherForecast)
 ![схема приложения](https://github.com/coolf124-vlab101/mts-teta-hw01/blob/main/mts-teta-hw-01.drawio.png?raw=true)
 ### Список хостов
 ```
