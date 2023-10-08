@@ -57,17 +57,17 @@ ansible-playbook deploy_pgcluster.yml
 ansible-playbook populater-postgresql.yml
 ```
 ### 3. Первичная настройка Приложения в кубе
-**3.1 Скопировать конфиг** 
+**3.1 Скопировать конфиг**  
 ```sh
 export KUBECONFIG=~/.kube/config:/shared/mts-teta/student_a.burdin@digitalms.ru.yaml
 kubectl config view --flatten
 kubectl config use-context student13@grand-lion-d99896
 ```
-**3.2 Запускаем контейнерное приложение**
+**3.2 Запускаем контейнерное приложение**  
 ```sh
 helm update api-01 k8s/api/
 ```
-**3.3 Создать тестовую зону 9f5f69f6-aa8c-4658-abf1-f6deeb4ebbba.mts-gslb.ru в техническом домене mts и правило GSLB **
+**3.3 Создать тестовую зону 9f5f69f6-aa8c-4658-abf1-f6deeb4ebbba.mts-gslb.ru в техническом домене mts и правило GSLB**  
 
 ### 4. Проверяем что работает
 ```sh
