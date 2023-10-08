@@ -6,6 +6,8 @@
  - git
  - kubectl
  - helm3
+### Схема приложения
+![схема приложения](https://github.com/coolf124-vlab101/mts-teta-hw01/blob/main/mts-teta-hw-01.drawio.png?raw=true)
 ### Список хостов
 ```
 balancer-01 10.0.10.2 :public
@@ -28,7 +30,6 @@ Host bastion-balancer-01
   User appuser
   Hostname 77.105.185.127 #Заменить на публичный IP
   StrictHostKeyChecking=no
-  UserKnownHostsFile=/dev/null
   IdentityFile /home/user/.ssh/appuser
 Host 10.0.10.3
  ProxyJump appuser@bastion-balancer-01
@@ -70,6 +71,8 @@ helm update api-01 k8s/api/
 ### 4. Проверяем что работает
 ```sh
 kubectl get pods #Проверяем что контейнеры запущены и работает
-kubectl get ingresses #Проверяем что Ingress
+kubectl get ingresses #Проверяем что Ingress работает и узнаем его IP
+kubectl get ingresses #Проверяем что Ingress работает и узнаем его IP
+#Добавляем в /etc/hosts запись для Ingress IP mts-teta-hw01-api
 curl http://mts-teta-hw01-api/WeatherForecast #проверям что приложение работает - если таблицы пусты, то вернет пустой ответ, но без ошибки
 ```
