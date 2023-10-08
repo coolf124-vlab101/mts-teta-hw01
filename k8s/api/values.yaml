@@ -48,7 +48,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: mts-teta-hw01-api
+    - host: 9f5f69f6-aa8c-4658-abf1-f6deeb4ebbba.mts-gslb.ru
       paths:
         - path: /
           pathType: ImplementationSpecific
