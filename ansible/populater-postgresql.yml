@@ -20,3 +20,20 @@
           port: 5000
           query: create table if not exists weather.public.forecast(    id          bigserial,     "cityId"    bigint,    "dateTime"  bigint,    temperature integer,    summary     text);
 
+      - name: Insert test data into public.cities table
+        postgresql_query:
+          db: weather
+          login_host: 77.105.185.127
+          login_user: mydbuser
+          login_password: mydb-user-pass
+          port: 5000
+          query: insert into weather.public.cities(id, name) values (1,'Moscow');
+
+      - name: Insert test data into public.forecast table
+        postgresql_query:
+          db: weather
+          login_host: 77.105.185.127
+          login_user: mydbuser
+          login_password: mydb-user-pass
+          port: 5000
+          query: insert into weather.public.forecast  values (1,1,1,30,'test data 01');
