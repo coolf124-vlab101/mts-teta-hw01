@@ -74,7 +74,7 @@ helm update api-01 k8s/api/
 kubectl get pods #Проверяем что контейнеры запущены и работает
 kubectl get ingresses #Проверяем что Ingress работает и узнаем его IP
 kubectl get ingresses #Проверяем что Ingress работает и узнаем его IP
-#Добавляем в /etc/hosts запись для Ingress IP mts-teta-hw01-api
+#Добавляем в /etc/hosts запись для Ingress IP mts-teta-hw01-api если требуется. Переделал на публичную DNS запись 9f5f69f6-aa8c-4658-abf1-f6deeb4ebbba.mts-gslb.ru
 curl http://9f5f69f6-aa8c-4658-abf1-f6deeb4ebbba.mts-gslb.ru/WeatherForecast #проверям что приложение работает - если таблицы пусты, то вернет пустой ответ, но без ошибки
 #Должно вернуться что типа {"id":1,"name":"Moscow","forecast":[{"id":1,"cityId":1,"dateTime":0,"temperature":30,"summary":"test"}]}
 ```
